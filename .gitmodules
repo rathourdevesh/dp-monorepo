@@ -1,6 +1,6 @@
 [submodule "optima"]
 	path = optima
-	url = git@github.com:rathourdevesh/optima.git
+	url = https://github.com/rathourdevesh/optima.git
 [submodule "bumblebee"]
 	path = bumblebee
-	url = git@github.com:rathourdevesh/bumblebee.git
+	url = https://github.com/rathourdevesh/bumblebee.git
