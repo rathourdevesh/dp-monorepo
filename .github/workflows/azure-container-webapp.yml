@@ -37,8 +37,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Verify directory structure
+        run: ls -R
 
       # Set up Docker Buildx
       - name: Set up Docker Buildx
@@ -49,10 +54,10 @@ jobs:
 
       # Build the Docker images
       - name: Build Docker image for bumblebee
-        run: docker build -t ghcr.io/rathourdevesh/dp-bumblebee:latest -f ./bumblebee/Dockerfile .
+        run: docker build -t ghcr.io/rathourdevesh/dp-bumblebee:latest -f ./bumblebee/Dockerfile ./bumblebee
 
       - name: Build Docker image for optima
-        run: docker build -t ghcr.io/rathourdevesh/dp-optima:latest -f ./optima/Dockerfile .
+        run: docker build -t ghcr.io/rathourdevesh/dp-optima:latest -f ./optima/Dockerfile ./optima
 
       # Push the images to GitHub Container Registry
       - name: Push backend image
