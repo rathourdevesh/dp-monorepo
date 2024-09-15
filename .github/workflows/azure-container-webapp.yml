@@ -49,10 +49,10 @@ jobs:
 
       # Build the Docker images
       - name: Build Docker image for bumblebee
-        run: cd bumblebee | docker build -t ghcr.io/rathourdevesh/dp-bumblebee:latest -f ./bumblebee/Dockerfile .
+        run: docker build -t ghcr.io/rathourdevesh/dp-bumblebee:latest -f ./bumblebee/Dockerfile .
 
       - name: Build Docker image for optima
-        run: cd optima | docker build -t ghcr.io/rathourdevesh/dp-optima:latest -f ./optima/Dockerfile .
+        run: docker build -t ghcr.io/rathourdevesh/dp-optima:latest -f ./optima/Dockerfile .
 
       # Push the images to GitHub Container Registry
       - name: Push backend image
